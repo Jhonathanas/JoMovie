@@ -38,10 +38,10 @@ function App() {
       <div className='navbar'>
         <a href="#home">Home</a>
       </div>
-      <div className='header'>
+      <div className='header' >
         <h1>JonaFilm</h1>
         <h5>Temukan Beragam Detail Film Terkini dan Terlengkap! Nikmati Akses Yand Diambil dari Database TDM! Jelajahi Informasi Film yang Mengagumkan Sekarang!"</h5>
-        <input 
+        <input style={{ marginBottom:'20px' }}
         placeholder='Judul Film yang ingin dicari ...'
         className='searchContainer'
         onChange={({ target }) => search(target.value)}/>
