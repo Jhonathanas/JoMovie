@@ -3,7 +3,6 @@
 }
 
 .navbar {
-  background-color: #141414;
   overflow: hidden;
 }
 
@@ -17,12 +16,10 @@
 }
 
 .navbar a:hover {
-  background-color: #ddd;
   color: black;
 }
 
 .navbar a.active {
-  background-color: #4CAF50;
   color: white;
 }
 
@@ -30,8 +27,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 70px;
   color: aliceblue;
+  justify-content: center;
 }
 
 .header h1 {
@@ -82,13 +79,6 @@
 .rateMovie{
   margin-bottom: 5px;
 }
-.footer{
-  text-align: center;
-  margin: 15px;
-  background-color: #4CAF50;
-  color: white;
-}
-
 @media screen and (max-width: 768px) {
   .header h1 {
     font-size: 60px;
