@@ -13,25 +13,30 @@ const Pergenre = ({ handleSelect }) => {
         console.error("Error fetching genres:", error);
         setGenres([]); // Handle errors gracefully
       });
-  }, []); // Empty dependency array to run once
-
-  console.log(genres);
+  }, []); 
 
   return (
-    <div className="container mx-auto py-5 px-10 bg-gray-800 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-white mb-4 text-center">Select Genre</h2>
-      <ul className="flex gap-5 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-        {genres.map((g) => (
-          <li key={g.id}>
-            <button
-              className="px-4 py-2 bg-gradient-to-tr from-sky-100 via-sky-200 to-sky-300 text-black hover:scale-110 hover:bg-sky-900 hover:text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition duration-150"
-              onClick={() => handleSelect(g.id)}
-            >
+    <div className="bg-slate-900 w-1/4 rounded-xl p-2 text-center lg:p-6 shadow-lg">
+      <h2 className=" lg:text-2xl font-bold text-white mb-4">
+        Select Genre
+      </h2>
+      <div className="relative">
+        <select
+          name="genre"
+          id="genre-select"
+          className="w-full bg-slate-700 text-white text-sm rounded-xl lg:p-3 outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => handleSelect(e.target.value)}
+        >
+          <option value="" disabled selected>
+            Choose a Genre
+          </option>
+          {genres.map((g) => (
+            <option key={g.id} value={g.id}>
               {g.name}
-            </button>
-          </li>
-        ))}
-      </ul>
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPeople, searchPeople } from "../api";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 const Actor = () => {
   const [actors, setActors] = useState([]);
@@ -18,24 +19,13 @@ const Actor = () => {
     }
   };
 
-  const handleActorClick = (actor) => {
-    setSelectedActor(actor);
-  };
-
-  const handleMouseEnter = (actor) => {
-    setSelectedActor(actor);
-  };
-
-  const handleMouseLeave = () => {
-    setSelectedActor(null);
-  };
-
   if (actors.length === 0) {
     return <div className="text-center text-2xl mt-10">Loading...</div>;
   }
 
   return (
     <>
+      <Navbar search={search} />
       <header className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-6 shadow-lg">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-4xl font-bold text-center">Actor Directory</h1>
@@ -49,9 +39,7 @@ const Actor = () => {
           <div
             key={actor.id}
             className="border border-gray-200 p-4 rounded-lg shadow-lg m-4 w-80 hover:shadow-xl transition-shadow duration-300"
-            onClick={() => handleActorClick(actor)}
-            onMouseEnter={() => handleMouseEnter(actor)}
-            onMouseLeave={handleMouseLeave}
+
           >
             <h1 className="text-xl font-bold mb-4 text-center text-white">
               {actor.name}
@@ -64,7 +52,7 @@ const Actor = () => {
             <p className="text-slate-200 mb-4 text-center">
               Popularity: {actor.popularity}
             </p>
-            <div className="bg-gray-100 p-4 rounded-lg">
+            {/* <div className="bg-gray-100 p-4 rounded-lg">
               <h2 className="text-lg font-semibold mb-2 text-center">
                 Known For
               </h2>
@@ -83,7 +71,7 @@ const Actor = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

@@ -4,12 +4,20 @@ const apiKey = import.meta.env.VITE_APIKEY;
 const baseUrl = import.meta.env.VITE_BASEURL;
 
 // movie
-export const getMovieList = async () => {
+export const getPopularMovies = async () => {
     const movie = await axios.get(`${baseUrl}/movie/popular?api_key=${apiKey}`)
     return movie.data.results
 }   
 export const getNowMovie = async () => {
     const movie = await axios.get(`${baseUrl}/movie/now_playing?api_key=${apiKey}`)
+    return movie.data.results
+}   
+export const getUpcoming = async () => {
+    const movie = await axios.get(`${baseUrl}/movie/upcoming?api_key=${apiKey}`)
+    return movie.data.results
+}   
+export const getToprated = async () => {
+    const movie = await axios.get(`${baseUrl}/movie/top_rated?api_key=${apiKey}`)
     return movie.data.results
 }   
 export const getVideo = async (q) => {
@@ -30,6 +38,12 @@ export const searchMovie = async (q) => {
 }
 export const getMovieListByGenre = async (genreId) => {
     const response = await axios.get(`${baseUrl}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`);
+    return response.data.results;
+};
+
+//PERMOVIE
+export const getMovieSimiliar = async (q) => {
+    const response = await axios.get(`${baseUrl}/movie/${q}/similar?api_key=${apiKey}`);
     return response.data.results;
 };
 //people
